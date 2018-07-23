@@ -1,110 +1,73 @@
-*, *:before, *:after {
-  box-sizing: border-box;
+/* CSS Variables */
+:root {
+  --primary: #ddd;
+  --dark #333;
+  --light #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
-@font-face {
-	font-family: 'National';
-	src: url('https://www.usc.edu/assets/fonts/NationalWeb-Regular.eot');
-	src: local(':)'),
-	url('https://www.usc.edu/assets/fonts/NationalWeb-Regular.woff') format('woff'),
-	url('https://www.usc.edu/assets/fonts/NationalWeb-Regular.ttf') format('truetype'),
-	url('https://www.usc.edu/assets/fonts/NationalWeb-Regular.svg') format('svg');
-	font-weight: 500;
-	font-style: normal;
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
 }
 
 body {
-  margin: 40px;
-  font-family: 'National';
-  background-color: #fff;
-  color: #ECE5F0;
+  background: #ccc;
+  margin: 30px 50px;
+  line-height: 1.4;
 }
 
-h1, p {
-  margin: 0 0 1em 0;
+
+.btn {
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
 }
 
 .wrapper {
-  max-width: 1800px;
-  margin: 0 20px;
   display: grid;
   grid-gap: 20px;
 }
 
-@media screen and (min-width: 600px) {
-
-  /* no grid support? */
-  .block-a, .block-b, .block-c {
-    float: left;
-    width: 19.1489%;
-  }
-
-  .content {
-    float: right;
-    width: 79.7872%;
-  }
-
-  .wrapper {
-    margin: 0 auto;
-    grid-template-columns: 1fr 3fr;
-    grid-auto-rows: minmax(150px, auto);
-  }
-
-  .header {
-    background-color: #1EA896;
-    grid-column: 1 / -1;
-    /* needed for the floated layout */
-    clear: both;
-  }
-
-  .footer {
-    background-color: #A0B9BF;
-    grid-column: 1 / -1;
-    /* needed for the floated layout */
-    clear: both;
-  }
-
-  .block-a {
-    grid-column: 1;
-    grid-row: 2;
-    background-color: #4D5057;
-  }
-
-  .block-b {
-    grid-column: 1;
-    grid-row: 4;
-    background-color: #A0B9BF;
-  }
-
-  .block-c {
-    grid-column: 1;
-    grid-row: 6;
-    background-color: #D9DBF1;
-  }
-
-  .content {
-    grid-column: 2;
-    grid-row: 2 / 7;
-    background-color: #D9DBF1;
-  }
-
+/* Navigation */
+.main-nav ul {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.wrapper > * {
-
-  color: #000000;
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
-  /* needed for the floated layout*/
-  margin-bottom: 10px;
+.main-nav a{
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
 }
 
-/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
-@supports (display: grid) {
-  .wrapper > * {
-    width: auto;
-    margin: 0;
-  }
+.main-nav a:hover{
+  background: var(--dark);
+  color: var(--light);
 }
-c
+
+/* Top Container */
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b';
+
+}
